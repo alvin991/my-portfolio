@@ -1,17 +1,388 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-  <div class="bg-white rounded-lg shadow p-8 max-w-lg w-full">
-    <h1 class="text-3xl font-bold mb-4">Hello, I am Alvin Leung!</h1>
-    <p class="mb-4">Welcome to my portfolio.</p>
-    <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Contact Me</button>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Alvin Leung Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script>
+      function openModal(htmlFile) {
+        fetch(htmlFile)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("modal-content").innerHTML = html;
+            document.getElementById("project-modal").classList.remove("hidden");
+          });
+      }
+      function closeModal() {
+        document.getElementById("project-modal").classList.add("hidden");
+        document.getElementById("modal-content").innerHTML = "";
+      }
+    </script>
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+  >
+    <header class="bg-white rounded-lg shadow my-8 p-8 max-w-4xl w-full">
+      <!-- <h1 class="text-3xl font-bold mb-4">Hello, I am Alvin Leung!</h1> -->
+      <p class="mb-4">
+        Hi, I’m Alvin Leung, a
+        <span class="font-bold">Calgary-based</span> Full-Stack Software
+        Developer with 7+ years’ experience building scalable, cloud-ready web
+        applications. I specialize in <span class="font-bold">React</span>,
+        <span class="font-bold">Node.js</span>, and
+        <span class="font-bold">TypeScript</span>, designing modern UIs and
+        robust backend systems, and deploying to Azure using CI/CD best
+        practices. Passionate about code clarity, automation, and team growth, I
+        love leveraging AI tools and modern DevOps to deliver real-world
+        solutions. Welcome to my portfolio.
+      </p>
+      <!-- <button
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Contact Me
+      </button> -->
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <a
+          href="https://github.com/alvin991"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <img src="/images/github-light.svg" alt="GitHub" class="h-6 w-6" />
+        </a>
+        <a
+          href="https://linkedin.com/in/alvinleung"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="/images/linkedin-light.svg"
+            alt="LinkedIn"
+            class="h-6 w-6"
+          />
+        </a>
+        <a href="mailto:alvin991@icloud.com" aria-label="Email">
+          <img src="/images/email-light.svg" alt="Email" class="h-6 w-6" />
+        </a>
+      </div>
+    </header>
+
+    <main class="bg-white rounded-lg shadow p-8 max-w-4xl w-full my-8">
+      <!-- <section class="bg-white rounded-lg shadow-md border my-8 p-8">
+        <h2 class="text-xl font-bold mb-2">About Me</h2>
+      </section> -->
+      <section class="bg-white rounded-lg shadow-md border my-8 p-8">
+        <h2 class="text-xl font-bold mb-2">Tech Stack</h2>
+        <br />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/react-dark.svg"
+                alt="React Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">React</span>
+            </div>
+          </span>
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/nextjs-dark.svg"
+                alt="Next.js Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Next.js</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/vuejs-light.svg"
+                alt="Vue.js Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Vue.js</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/typescript-light.svg"
+                alt="TypeScript Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">TypeScript</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/nodejs-light.svg"
+                alt="Node.js Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Node.js</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/mysql-light.svg"
+                alt="MySQL Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">MySQL</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/mssql-light.svg"
+                alt="MSSQL Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">MSSQL</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/postgresql-light.svg"
+                alt="PostgreSQL Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">PostgreSQL</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/mongodb-light.svg"
+                alt="MongoDB Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">MongoDB</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/bootstrap-light.svg"
+                alt="Bootstrap Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Bootstrap</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/tailwindcss-light.svg"
+                alt="Tailwind CSS Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Tailwind CSS</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/php-light.svg"
+                alt="PHP Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">PHP</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/python-light.svg"
+                alt="Python Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Python</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/laravel-light.svg"
+                alt="Laravel Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Laravel</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/docker-light.svg"
+                alt="Docker Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Docker</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/azure-light.svg"
+                alt="Azure Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Azure</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
+                src="/images/gcp-light.svg"
+                alt="Google Cloud Platform Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">Google Cloud</span>
+            </div>
+          </span>
+        </div>
+      </section>
+      <section class="bg-white rounded-lg shadow-md border my-8 p-8">
+        <h2 class="text-xl font-bold mb-2">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Password Store App</h3>
+            <p class="mb-4 text-gray-700">
+              A modern, secure, and user-friendly password management web
+              application built with Next.js, React, and Prisma. This app allows
+              users to store, manage, and export their passwords securely, with
+              a clean and intuitive interface.
+            </p>
+            <!-- onclick="
+                document
+                  .getElementById('modal-project1')
+                  .classList.remove('hidden')
+              " -->
+            <a
+              href="#"
+              class="mt-auto text-blue-600 hover:underline font-medium"
+              onclick="openModal('project1.html')"
+              >View Project</a
+            >
+          </div>
+          <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+            <p class="mb-4 text-gray-700">
+              Short description of your second project, its purpose, and
+              technologies used.
+            </p>
+            <a
+              href="#"
+              class="mt-auto text-blue-600 hover:underline font-medium"
+              onclick="
+                document
+                  .getElementById('modal-project1')
+                  .classList.remove('hidden')
+              "
+              >View Project</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="bg-white rounded-lg shadow-md border my-8 p-8">
+        <h2 class="text-xl font-bold mb-2">Work Experience</h2>
+        <p>...</p>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 Alvin Leung. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <!-- <div
+      id="modal-project1"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div class="bg-white rounded-lg shadow-lg p-12 max-w-2xl w-full relative">
+        <button
+          onclick="
+            document.getElementById('modal-project1').classList.add('hidden')
+          "
+          class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
+        >
+          &times;
+        </button>
+        <h3 class="text-2xl font-bold mb-4">Project One Details</h3>
+        <p>
+          Here you can add more detailed information, images, or links about
+          your project.
+        </p>
+      </div>
+    </div> -->
+    <div
+      id="project-modal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div class="bg-white rounded-lg shadow-lg p-12 max-w-4xl w-full relative max-h-[80vh] overflow-y-auto">
+        <button
+          onclick="closeModal()"
+          class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
+        >
+          &times;
+        </button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+  </body>
 </html>
