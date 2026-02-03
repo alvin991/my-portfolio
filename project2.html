@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Home Expense App</title>
+  </head>
+  <body>
+    <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Home Expense App</h3>
+      <p class="mb-4 text-gray-700">
+        A modern, secure, and user-friendly password management web application
+        built with Next.js, React, and Prisma. This app allows users to store,
+        manage, and export their passwords securely, with a clean and intuitive
+        interface.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Tech Stack</h4>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/react-dark.svg"
+              alt="React Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">React</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/nodejs-light.svg"
+              alt="Node.js Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">Node.js</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/typescript-light.svg"
+              alt="TypeScript Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">TypeScript</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/bootstrap-light.svg"
+              alt="Bootstrap Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">Bootstrap</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/postgresql-light.svg"
+              alt="PostgreSQL Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">PostgreSQL</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/docker-light.svg"
+              alt="Docker Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">Docker</span>
+          </div>
+        </span>
+      </div>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Features</h4>
+      <ul class="list-disc list-inside">
+        <li class="mb-2">
+          User Authentication: Secure login and registration with protected
+          routes.
+        </li>
+        <li class="mb-2">
+          Expense Tracking: Add, edit, and delete transactions with support for
+          categories and payment methods.
+        </li>
+        <li class="mb-2">Export: Export your expenses securely as CSV.</li>
+        <li class="mb-2">
+          Recurring Transactions: Manage recurring expenses and templates for
+          automated tracking.
+        </li>
+        <li class="mb-2">
+          Credit Card Management: Track credit card expenses and payments.
+        </li>
+        <li class="mb-2">
+          Category Management: Create, edit, and organize expense categories.
+        </li>
+        <li class="mb-2">
+          Analytics & Charts: Visualize spending with pie charts and grouped
+          tables.
+        </li>
+        <li class="mb-2">
+          Search & Filter: Powerful search and filter options for transactions
+          and templates.
+        </li>
+        <li class="mb-2">
+          Settings & Customization: Personalize categories, colors, and icons.
+        </li>
+        <li class="mb-2">
+          Responsive UI: Modern, mobile-friendly interface built with React and
+          Vite.
+        </li>
+        <li class="mb-2">
+          Backend API: RESTful API for all core features, with secure data
+          handling.
+        </li>
+        <li class="mb-2">
+          Cron Services: Automated backend tasks for recurring templates and
+          data updates.
+        </li>
+      </ul>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Challenges</h4>
+      <ul class="list-decimal list-inside">
+        <li class="mb-2">
+          <span class="font-bold">User Authentication & Route Protection</span>
+          <br/>
+          Challenge: Securing user data
+          and restricting access to authenticated users only. 
+          <br/>
+          Resolved: The app
+          implements authentication and protected routes.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Recurring Transactions Logic</span>
+          <br/>
+          Challenge: Automating the creation and
+          management of recurring expenses. 
+          <br/>
+          Resolved: There are backend services and cron jobs for handling recurring templates.
+          and cron jobs for handling recurring templates.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Category & Payment Method Management</span>
+          <br/>
+          Challenge: Allowing users to
+          flexibly manage categories and payment methods. 
+          <br/>
+          Resolved: The app provides endpoints and UI for creating, editing, and selecting categories/payment methods.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Credit Card Expense Tracking</span>
+          <br/>
+          Challenge: Handling credit card-specific
+          logic and aggregating expenses.
+          <br/>
+          Resolved: Dedicated routes and components for credit card management.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Data Visualization</span>
+          <br/>
+          Challenge: Presenting spending data in a clear,
+          insightful way. 
+          <br/>
+          Resolved: The app includes pie charts and grouped tables for analytics.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Responsive, Modern UI</span>
+          <br/>
+          Challenge: Ensuring the app works well on all
+          devices and is user-friendly. 
+          <br/>
+          Resolved: Built with React and Vite, with modular components and CSS.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">API & State Management</span>
+          <br/>
+          Challenge: Keeping frontend and backend data in
+          sync, and managing state efficiently. 
+          <br/>
+          Resolved: Uses RESTful APIs and state management (e.g., Zustand).
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Search & Filtering</span>
+          <br/>
+          Challenge: Enabling users to quickly find and
+          filter transactions.
+          <br/>
+          Resolved: Search and filter features are implemented in the UI.
+        </li>
+      </ul>
+
+      <!-- <h4 class="text-xl font-semibold mb-2 mt-2">Learnings</h4>
+      <ul class="list-disc list-inside">
+        <li class="mb-2">
+          Deepened understanding of secure data handling and the importance of
+          encryption for sensitive information.
+        </li>
+        <li class="mb-2">
+          Gained experience with modern backend frameworks (e.g., Node.js,
+          Prisma ORM) and relational databases (PostgreSQL/SQLite).
+        </li>
+        <li class="mb-2">
+          Improved skills in designing responsive, user-friendly UIs with
+          Tailwind CSS.
+        </li>
+        <li class="mb-2">
+          Learned to implement confirmation dialogs and dirty-checking to
+          enhance user safety and prevent data loss.
+        </li>
+        <li class="mb-2">
+          Practiced building and deploying Dockerized applications for
+          consistent local and production environments.
+        </li>
+        <li class="mb-2">
+          Enhanced knowledge of RESTful API design and secure data export (CSV).
+        </li>
+        <li class="mb-2">
+          Strengthened ability to manage application state and handle edge cases
+          in CRUD operations.
+        </li>
+        <li class="mb-2">
+          Developed better awareness of web security best practices
+          (authentication, authorization, and input validation).
+        </li>
+        <li class="mb-2">
+          Improved project organization by splitting code into reusable,
+          maintainable components and files.
+        </li>
+        <li class="mb-2">
+          Gained experience in balancing usability with strong security
+          requirements.
+        </li>
+      </ul> -->
+
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <a target="_blank" href="https://github.com/alvin991/amaska-expense-app"
+          ><span
+            data-slot="badge"
+            class="inline-flex items-center justify-center rounded-md border py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground px-4 text-base"
+            >Github
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-external-link w-4 h-4 -mt-2"
+            >
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              ></path></svg></span
+        ></a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -309,11 +309,6 @@
               users to store, manage, and export their passwords securely, with
               a clean and intuitive interface.
             </p>
-            <!-- onclick="
-                document
-                  .getElementById('modal-project1')
-                  .classList.remove('hidden')
-              " -->
             <a
               href="#"
               class="mt-auto text-blue-600 hover:underline font-medium"
@@ -322,19 +317,14 @@
             >
           </div>
           <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
-            <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+            <h3 class="text-xl font-semibold mb-2">House Expense App</h3>
             <p class="mb-4 text-gray-700">
-              Short description of your second project, its purpose, and
-              technologies used.
+              Amaska Expense App is a full-stack expense management application designed to help users track, categorize, and analyze their spending. It features a modern React frontend and a Node.js/Express backend, with support for recurring transactions, credit cards, and detailed analytics.
             </p>
             <a
               href="#"
               class="mt-auto text-blue-600 hover:underline font-medium"
-              onclick="
-                document
-                  .getElementById('modal-project1')
-                  .classList.remove('hidden')
-              "
+              onclick="openModal('project2.html')"
               >View Project</a
             >
           </div>
@@ -349,27 +339,6 @@
       <p>&copy; 2026 Alvin Leung. All rights reserved.</p>
     </footer>
 
-    <!-- Modal -->
-    <!-- <div
-      id="modal-project1"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
-    >
-      <div class="bg-white rounded-lg shadow-lg p-12 max-w-2xl w-full relative">
-        <button
-          onclick="
-            document.getElementById('modal-project1').classList.add('hidden')
-          "
-          class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
-        >
-          &times;
-        </button>
-        <h3 class="text-2xl font-bold mb-4">Project One Details</h3>
-        <p>
-          Here you can add more detailed information, images, or links about
-          your project.
-        </p>
-      </div>
-    </div> -->
     <div
       id="project-modal"
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
