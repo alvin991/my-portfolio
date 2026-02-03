@@ -15,10 +15,21 @@
             document.getElementById("modal-content").innerHTML = html;
             document.getElementById("project-modal").classList.remove("hidden");
           });
+        const overlay = document.getElementById("project-modal");
+        overlay.style.display = "flex";
+        overlay.addEventListener("click", handleOverlayClick);
       }
       function closeModal() {
         document.getElementById("project-modal").classList.add("hidden");
         document.getElementById("modal-content").innerHTML = "";
+        const overlay = document.getElementById("project-modal");
+        overlay.style.display = "none";
+        overlay.removeEventListener("click", handleOverlayClick);
+      }
+      function handleOverlayClick(event) {
+        if (event.target === event.currentTarget) {
+          closeModal();
+        }
       }
     </script>
   </head>
@@ -319,7 +330,11 @@
           <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
             <h3 class="text-xl font-semibold mb-2">House Expense App</h3>
             <p class="mb-4 text-gray-700">
-              Amaska Expense App is a full-stack expense management application designed to help users track, categorize, and analyze their spending. It features a modern React frontend and a Node.js/Express backend, with support for recurring transactions, credit cards, and detailed analytics.
+              Amaska Expense App is a full-stack expense management application
+              designed to help users track, categorize, and analyze their
+              spending. It features a modern React frontend and a
+              Node.js/Express backend, with support for recurring transactions,
+              credit cards, and detailed analytics.
             </p>
             <a
               href="#"
@@ -330,10 +345,10 @@
           </div>
         </div>
       </section>
-      <section class="bg-white rounded-lg shadow-md border my-8 p-8">
+      <!-- <section class="bg-white rounded-lg shadow-md border my-8 p-8">
         <h2 class="text-xl font-bold mb-2">Work Experience</h2>
         <p>...</p>
-      </section>
+      </section> -->
     </main>
     <footer>
       <p>&copy; 2026 Alvin Leung. All rights reserved.</p>
@@ -343,7 +358,9 @@
       id="project-modal"
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
     >
-      <div class="bg-white rounded-lg shadow-lg p-12 max-w-4xl w-full relative max-h-[80vh] overflow-y-auto">
+      <div
+        class="bg-white rounded-lg shadow-lg p-12 max-w-4xl w-full relative max-h-[80vh] overflow-y-auto"
+      >
         <button
           onclick="closeModal()"
           class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
