@@ -31,6 +31,22 @@ README.md
 script.js
 style.css
 ```
+## Local Development with Docker
+
+To test the site locally with Nginx in Docker and see live changes:
+
+1. Build the Docker image:
+   ```sh
+   docker build -t my-portfolio .
+   ```
+2. Run the container and mount your project directory:
+   ```sh
+   docker run -d -p 8080:80 --name my-portfolio -v C:/alvin/code/portfolio:/usr/share/nginx/html my-portfolio
+   ```
+3. Open your browser and go to:
+   [http://localhost:8080](http://localhost:8080)
+
+Any changes to your HTML, JS, or CSS files will be reflected immediately. Just refresh your browser.
 
 ## Contact
 
