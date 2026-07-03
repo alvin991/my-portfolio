@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Homeschool Planner</title>
+  </head>
+  <body>
+    <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Homeschool Planner</h3>
+      <p class="mb-4 text-gray-700">
+        A full-stack Next.js application for managing a homeschool
+        curriculum: draggable lesson/folder outlines, enrollment scheduling
+        with a live calendar preview, a month-view calendar with per-student
+        auto-rescheduling, shared resources (subjects, publishers), and a
+        GraphQL API over MongoDB. The codebase is structured so the UI, API
+        boundary, and data model stay explicit — useful as a portfolio piece
+        for discussing system design in interviews.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Tech Stack</h4>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/nextjs-dark.svg"
+              alt="Next.js Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">Next.js</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/react-dark.svg"
+              alt="React Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">React</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/typescript-light.svg"
+              alt="TypeScript Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">TypeScript</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/graphql-light.svg"
+              alt="GraphQL Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">GraphQL</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/mongodb-light.svg"
+              alt="MongoDB Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">MongoDB</span>
+          </div>
+        </span>
+
+        <span class="flex-1 flex items-center justify-center">
+          <div
+            class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+          >
+            <img
+              src="/images/tailwindcss-light.svg"
+              alt="Tailwind CSS Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <span class="mt-2 font-medium text-sm">Tailwind CSS</span>
+          </div>
+        </span>
+      </div>
+      <p class="mb-4 mt-4 text-gray-700 text-sm">
+        <span class="font-medium">Also used:</span> Apollo Server + Client,
+        Mongoose, dnd-kit, Vitest.
+      </p>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Features</h4>
+      <ul class="list-disc list-inside">
+        <li class="mb-2">
+          Draggable lesson/folder outline (dnd-kit) with a course template
+          system where enrollments copy lessons for per-student isolation.
+        </li>
+        <li class="mb-2">
+          Resync function that propagates teacher updates from the course
+          template to enrolled students without overwriting their progress.
+        </li>
+        <li class="mb-2">
+          Enrollment scheduling (weekdays, week interval, suspension periods,
+          optional end date) with a live calendar preview before saving.
+        </li>
+        <li class="mb-2">
+          Month and day calendar views with subject color coding and a
+          status workflow (pending, completed, skipped) editable from a
+          lesson popover.
+        </li>
+        <li class="mb-2">
+          Lazy per-student auto-rescheduling: overdue lessons are detected
+          and pushed forward on calendar load, no background job required.
+        </li>
+        <li class="mb-2">
+          GraphQL API over MongoDB, with resolvers split by domain (courses,
+          resources, calendar) and merged into a single schema.
+        </li>
+        <li class="mb-2">
+          Shared resource management for subjects, publishers, and students.
+        </li>
+      </ul>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Challenges</h4>
+      <ul class="list-decimal list-inside">
+        <li class="mb-2">
+          <span class="font-bold">Preview vs. saved schedule drift</span>
+          <br />
+          Challenge: Enrollment previews and actual saves need to produce
+          identical schedules, or the calendar the user previews could
+          mislead them.
+          <br />
+          Resolved: <code>computeSchedule</code> is a single pure function
+          called from both <code>createEnrollment</code> and
+          <code>previewEnrollmentSchedule</code>; the preview path runs the
+          exact computation and simply never writes to the database.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Auto-rescheduling without a cron job</span>
+          <br />
+          Challenge: Overdue lessons need to shift forward automatically, but
+          a background job adds infrastructure and staleness windows.
+          <br />
+          Resolved: <code>processOverdueLessons</code> runs on calendar-view
+          queries, scanning active enrollments in memory and only writing to
+          the database when overdue lessons are actually found — imperceptible
+          latency for an app opened daily.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Keeping outline UI and saved structure in sync</span>
+          <br />
+          Challenge: The sidebar tree and lesson/folder forms can drift apart
+          after drag-and-drop or optimistic UI updates.
+          <br />
+          Resolved: A <code>lessonTreeSourceRef</code> alongside React state
+          ensures saves read the same tree the outline renderer displays.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Live vs. preview calendar data fetching</span>
+          <br />
+          Challenge: The same calendar grid components are reused between the
+          live calendar and the enrollment preview modal, but their data can
+          change under different rules.
+          <br />
+          Resolved: The live calendar re-queries on every month change since
+          saved data can change underneath it; the preview modal fetches the
+          full projected schedule once and filters client-side, since an
+          unsaved schedule can't change out from under the user.
+        </li>
+        <li class="mb-2">
+          <span class="font-bold">Resisting premature DRY</span>
+          <br />
+          Challenge: The month-view calendar resolver and the enrollment
+          preview both compute scheduled dates, tempting a shared
+          abstraction.
+          <br />
+          Resolved: Kept them separate — the month view has different
+          concerns (multiple enrollments, month filtering, reconciling live
+          status) that would have added branching to the simpler,
+          single-enrollment preview path just to share code.
+        </li>
+      </ul>
+
+      <h4 class="text-xl font-semibold mb-2 mt-2">Learnings</h4>
+      <ul class="list-disc list-inside">
+        <li class="mb-2">
+          Practiced modeling a recursive tree (lesson outline) as an embedded
+          Mongoose subdocument and weighing that against normalization —
+          fewer round-trips and transactional consistency vs. single-document
+          growth limits.
+        </li>
+        <li class="mb-2">
+          Learned to pair parallel arrays by index (<code>scheduled_dates</code>
+          and <code>lesson_occurrences</code>) to keep lookups O(1) without a
+          join.
+        </li>
+        <li class="mb-2">
+          Reinforced that sharing a pure computation (not just UI components)
+          is what actually prevents preview/save drift, rather than sharing
+          the surrounding resolver logic.
+        </li>
+        <li class="mb-2">
+          Gained comfort documenting scope honestly — noting where
+          authentication and multi-tenant isolation were deliberately left
+          out of a portfolio project rather than glossing over it.
+        </li>
+        <li class="mb-2">
+          Built experience structuring a GraphQL schema and resolvers by
+          domain so each module owns its own Query/Mutation fields without
+          overwriting siblings.
+        </li>
+      </ul>
+
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <a target="_blank" href="https://github.com/alvin991/homeschool-planner"
+          ><span
+            data-slot="badge"
+            class="inline-flex items-center justify-center rounded-md border py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground px-4 text-base"
+            >Github
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-external-link w-4 h-4 -mt-2"
+            >
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              ></path></svg></span
+        ></a>
+      </div>
+    </div>
+  </body>
+</html>

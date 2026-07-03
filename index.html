@@ -157,6 +157,19 @@
               class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
             >
               <img
+                src="/images/graphql-light.svg"
+                alt="GraphQL Logo"
+                class="w-12 h-12 object-contain"
+              />
+              <span class="mt-2 font-medium text-sm">GraphQL</span>
+            </div>
+          </span>
+
+          <span class="flex-1 flex items-center justify-center">
+            <div
+              class="flex flex-col items-center justify-center w-28 h-24 rounded-lg bg-white shadow border"
+            >
+              <img
                 src="/images/mysql-light.svg"
                 alt="MySQL Logo"
                 class="w-12 h-12 object-contain"
@@ -312,6 +325,32 @@
       <section class="bg-white rounded-lg shadow-md border my-8 p-8">
         <h2 class="text-xl font-bold mb-2">Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Homeschool Planner</h3>
+            <p class="mb-4 text-gray-700">
+              A full-stack Next.js app for managing a homeschool curriculum —
+              draggable lesson outlines, enrollment scheduling with live
+              calendar preview, and per-student auto-rescheduling, built on a
+              GraphQL API over MongoDB. Designed a course template system
+              where enrollments copy lessons for per-student isolation, with
+              a resync function that propagates teacher updates without
+              overwriting progress. Built a shared, pure scheduling function
+              so what a user previews always matches what gets saved, and
+              lazy auto-rescheduling for overdue lessons that runs on
+              calendar load instead of a background job.
+            </p>
+            <p class="mb-4 text-gray-700 text-sm">
+              <span class="font-medium">Tech:</span> Next.js, React,
+              TypeScript, GraphQL, Apollo Server + Client, MongoDB, Mongoose,
+              dnd-kit, Tailwind CSS, Vitest
+            </p>
+            <a
+              href="#"
+              class="mt-auto text-blue-600 hover:underline font-medium"
+              onclick="openModal('project3.html')"
+              >View Project</a
+            >
+          </div>
           <div class="bg-white rounded-lg shadow border p-6 flex flex-col">
             <h3 class="text-xl font-semibold mb-2">Password Store App</h3>
             <p class="mb-4 text-gray-700">
